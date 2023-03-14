@@ -1,6 +1,6 @@
 import { Global } from '@emotion/react'
 import { extendTheme } from '@chakra-ui/react'
-import font3d from './assets/fonts/ARCADECLASSIC.ttf';
+import font3d from './assets/fonts/pixelFont.ttf';
 import ka1 from './assets/fonts/ka1.ttf';
 
 
