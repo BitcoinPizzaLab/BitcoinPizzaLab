@@ -1,6 +1,6 @@
 import { Box, Checkbox, Flex, Grid, GridItem, Image } from '@chakra-ui/react'
 import { useState } from 'react';
-import preview1 from '../assets/useless/1181.png'
+import preview1 from '../assets/useless/cryptopizza_0.png'
 import { NftItem } from './NftItem';
 
 interface TableProps {
