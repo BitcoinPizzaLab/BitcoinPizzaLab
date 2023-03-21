@@ -9,7 +9,7 @@ interface NftItemProps {
 }
 
 export function NftItem(props: NftItemProps) {
-  const { className, src, id, showId=false } = props;
+  const { className, src, id, showId = false } = props;
 
   return <Box position="relative" className={`${className}`}>
     <Image src={src}></Image>
@@ -22,7 +22,7 @@ export function NftItem(props: NftItemProps) {
       top="0"
       width="100%"
       height="100%"
-      bgColor="blackAlpha.0"
+      // bgColor="blackAlpha.0"
       opacity="0"
       position="absolute"
       color="#fff"

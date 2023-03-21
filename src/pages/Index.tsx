@@ -1,6 +1,6 @@
-import Marquee from "react-fast-marquee";
 import Logo from '../assets/logo.gif'
 import { Box, Image, Flex, Heading } from "@chakra-ui/react";
+import { Table } from "../components/Table";
 
 interface IndexProps {
   className?: string;
@@ -17,35 +17,38 @@ const imagesList = arr.map((item, i) => {
 function Index(props: IndexProps) {
   const { className } = props;
 
-  return <Box className={className}>
+  return <Flex h="100vh" direction="column" justifyContent="center" className={className}>
 
-    <Flex my="10" justifyContent="center">
-      <Image width={["200px", "300px"]} height={["200px", "300px"]} src={Logo} />
-    </Flex>
+    <Box>
+      <Flex my="10" justifyContent="center">
+        <Image width={["200px", "300px"]} height={["200px", "300px"]} src={Logo} />
+      </Flex>
 
-    <Flex my="20" gap="5" justifyContent="center" direction="column">
-      <Heading textAlign="center" fontFamily="ka1" size={["md", "md"]}>
-        BITCOIN PIZZAS
-      </Heading>
-      <Heading textAlign="center" size={["md", "md"]}>
-        AN ANTI-NFT ARTISTIC EXPERIMENT
-      </Heading>
+      <Flex my="20" gap="5" justifyContent="center" direction="column">
+        <Heading textAlign="center" fontFamily="ka1" size={["md", "lg"]}>
+          BITCOIN PIZZAS
+        </Heading>
 
+        <Heading textAlign="center" fontFamily="ka1" size={["md", "md"]}>
+          Pizza Labs
+        </Heading>
 
-      <Heading textAlign="center" fontFamily="ka1" size={["md", "lg"]}>
-        Pizza Labs
-      </Heading>
+        <Heading mt="70px" textAlign="center" size={["md", "lg"]}>
+          1 SATOSHI = 1 PIZZA
+        </Heading>
 
-      <Heading textAlign="center" size={["md", "md"]}>
-        1 SATOSHI = 1 PIZZA
-      </Heading>
+        {/* <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "lg"]}>
+          0 / 522 INSCRIBED!
+        </Heading> */}
 
-      <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "md"]}>
-        0 / 522 INSCRIBED!
-      </Heading>
-    </Flex>
+        <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "lg"]}>
+          Coming Soon...
+        </Heading>
+      </Flex>
 
-    <Flex direction="column" gap="2">
+    </Box>
+
+    {/* <Flex direction="column" gap="2">
       <Box>
         <Marquee direction="right" speed={40}>
           {imagesList.slice(250, 280).map(src => {
@@ -61,9 +64,10 @@ function Index(props: IndexProps) {
           })}
         </Marquee>
       </Box>
-    </Flex>
+    </Flex> */}
 
-  </Box>;
+    {/* <Table /> */}
+  </Flex>;
 }
 
 export default Index;

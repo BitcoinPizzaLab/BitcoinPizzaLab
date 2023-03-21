@@ -11,10 +11,10 @@ export function Container() {
       // bgColor="#F2CD5C"
       minH="calc(100vh)"
       bgColor="#151515">
-      <Header></Header>
+      {/* <Header></Header> */}
 
       <Box margin="auto"
-        color="#ef5f29"
+        color="#f7931a"
       // padding={['10px', '20px', '80px']}
       >
         <Outlet />
