@@ -22,6 +22,6 @@ export function Header(props: HeaderProps) {
       <a>DONATE</a>
       <a href="https://twitter.com/pizzalabs_btc" target="_blank">TWITTER</a>
     </Flex>
-    <Box h="60px"></Box>
+    <Box h="90px"></Box>
   </>;
 }
