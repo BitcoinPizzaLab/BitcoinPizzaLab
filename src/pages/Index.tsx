@@ -44,7 +44,7 @@ function Index(props: IndexProps) {
 
   useInterval(
     fetchData,
-    20000
+    60000
   );
 
   return <Box className={className}>
