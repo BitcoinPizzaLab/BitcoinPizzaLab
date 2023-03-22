@@ -11,8 +11,25 @@
         background-color: #ffc803;
       }
 
-      .overlay::before, .overlay::after {
+      .overlay::before,
+      .overlay::after {
         display: none;
+      }
+
+      .gray {
+        transition: 0.3s;
+        -webkit-filter: grayscale(90%);
+        -moz-filter: grayscale(90%);
+        -ms-filter: grayscale(90%);
+        -o-filter: grayscale(90%);
+
+        filter: grayscale(90%);
+
+        filter: gray;
+      }
+
+      .NFTItem:hover .gray{
+        filter: none;
       }
     </style>
   </head>
