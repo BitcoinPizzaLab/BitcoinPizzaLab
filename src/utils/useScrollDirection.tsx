@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 export function useScrollDirection() {
-    const [scrollDirection, setScrollDirection] = useState('');
+    const [scrollDirection, setScrollDirection] = useState('up');
     const previousScrollYRef = useRef(0);
 
     useEffect(() => {
