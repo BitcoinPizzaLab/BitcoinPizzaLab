@@ -27,7 +27,6 @@ export function Table(props: TableProps) {
     return pizzaList;
   }, [pizzaList, searchId]);
 
-  console.log(pizzaListFilter)
   return (
     <>
       <Box maxW="1400px" m="auto" px={['10px', '20px', '80px']} my="10">
