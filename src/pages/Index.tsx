@@ -1,6 +1,7 @@
 import Logo from '../assets/logo.gif'
-import { Box, Image, Flex, Heading } from "@chakra-ui/react";
+import { Box, Image, Flex, Heading, Text } from "@chakra-ui/react";
 import { Table } from "../components/Table";
+import { Countdown } from '../components/CountDown';
 
 interface IndexProps {
   className?: string;
@@ -42,7 +43,7 @@ function Index(props: IndexProps) {
         </Heading> */}
 
         <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "lg"]}>
-          Coming Soon...
+          <Countdown time={1679832000000 - new Date().getTime()} />
         </Heading>
       </Flex>
 
