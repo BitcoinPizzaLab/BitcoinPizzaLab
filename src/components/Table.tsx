@@ -43,7 +43,7 @@ export function Table(props: TableProps) {
         {pizzaListFilter.length === 1 && pizzaListFilter.map((item) => {
           return (
             <Flex borderRadius="5px" overflow="hidden" key={item.id} bg='#F2921D' w={['80%', '30%']} m="auto" mt="50px">
-              <NftItem lowest={item.lowest} hashes={item.hashes} showId={showId} id={item.id} src={`https://develop.bitcoinpizzalab.pages.dev/output/cryptopizza_${item.id}.png`}></NftItem>
+              <NftItem lowest={item.lowest} hashes={item.hashes} showId={showId} id={item.id} src={`https://pizzalabs.art/output/cryptopizza_${item.id}.png`}></NftItem>
             </Flex>
           )
         })}
@@ -52,7 +52,7 @@ export function Table(props: TableProps) {
           {pizzaListFilter.map((item) => {
             return (
               <GridItem borderRadius="5px" overflow="hidden" key={item.id} w='100%' bg='#F2921D'>
-                <NftItem lowest={item.lowest} hashes={item.hashes} showId={showId} id={item.id} src={`https://develop.bitcoinpizzalab.pages.dev/output/cryptopizza_${item.id}.png`}></NftItem>
+                <NftItem lowest={item.lowest} hashes={item.hashes} showId={showId} id={item.id} src={`https://pizzalabs.art/output/cryptopizza_${item.id}.png`}></NftItem>
               </GridItem>
             )
           })}
