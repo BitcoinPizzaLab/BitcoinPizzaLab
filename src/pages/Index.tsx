@@ -70,8 +70,13 @@ function Index(props: IndexProps) {
         </Heading>
 
         <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "lg"]}>
-          {ifStart && <>{alreadyInscribeNum} / 522 INSCRIBED!</>}
+          {/* {ifStart && <>{alreadyInscribeNum} / 522 INSCRIBED!</>} */}
+          522 / 522 INSCRIBED!
           {!ifStart && <Countdown onStart={() => setIfStart(true)} time={1679832000000 - new Date().getTime()} />}
+        </Heading>
+
+        <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "lg"]}>
+          INSCRIBE OUT!
         </Heading>
       </Flex>
     </Box>
