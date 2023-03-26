@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 
 interface CountdownProps {
   time: number; // time in seconds
+  onStart: () => void;
 }
 
-export const Countdown: React.FC<CountdownProps> = ({ time }) => {
-  const [seconds, setSeconds] = useState<number>(Number((time/1000).toFixed(0)));
+export const Countdown: React.FC<CountdownProps> = ({ time, onStart }) => {
+  const [seconds, setSeconds] = useState<number>(Number((time / 1000).toFixed(0)));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,6 +16,12 @@ export const Countdown: React.FC<CountdownProps> = ({ time }) => {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (seconds <= 0) {
+      onStart()
+    }
+  }, [seconds])
 
   const days = Math.floor(seconds / (3600 * 24));
   const hours = Math.floor((seconds % (3600 * 24)) / 3600);

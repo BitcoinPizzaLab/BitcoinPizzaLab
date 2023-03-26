@@ -11,7 +11,7 @@ export function Container() {
       // bgColor="#F2CD5C"
       minH="calc(100vh)"
       bgColor="#151515">
-      {/* <Header></Header> */}
+      <Header></Header>
 
       <Box margin="auto"
         color="#f7931a"

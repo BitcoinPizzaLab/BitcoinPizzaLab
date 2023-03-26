@@ -1,25 +1,56 @@
 import Logo from '../assets/logo.gif'
-import { Box, Image, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Image, Flex, Heading } from "@chakra-ui/react";
 import { Table } from "../components/Table";
+import { useCallback, useMemo, useState } from 'react';
+import { getPizzaJson } from '../request';
+import { useInterval, useMount } from 'react-use';
 import { Countdown } from '../components/CountDown';
 
 interface IndexProps {
   className?: string;
 }
 
-const arr = Array.from({
-  length: 500
-})
-
-const imagesList = arr.map((item, i) => {
-  return `https://bitcoinpizzalab.pages.dev/output/cryptopizza_${i + 1}.png`
-});
-
 function Index(props: IndexProps) {
   const { className } = props;
 
-  return <Flex h="100vh" direction="column" justifyContent="center" className={className}>
+  const [pizzaList, setPizzaList] = useState<{
+    hash: string;
+    id: string;
+    lowest: string;
+    hashes: {
+      [key: string]: string;
+    };
+  }[]>([])
 
+  const alreadyInscribeNum = useMemo(() => {
+    const alreadyInscribe = pizzaList.filter(item => item.lowest);
+    return alreadyInscribe.length;
+  }, [pizzaList]);
+
+  const [ifStart, setIfStart] = useState(false);
+
+  const fetchData = useCallback(() => {
+    getPizzaJson().then((res) => {
+      const data = Object.keys(res.data.list).map(key => {
+        return {
+          ...res.data.list[key],
+          hash: key
+        }
+      })
+      setPizzaList(data);
+    });
+  }, [])
+
+  useMount(() => {
+    fetchData();
+  })
+
+  useInterval(
+    fetchData,
+    60000
+  );
+
+  return <Box className={className}>
     <Box>
       <Flex my="10" justifyContent="center">
         <Image width={["200px", "300px"]} height={["200px", "300px"]} src={Logo} />
@@ -38,15 +69,11 @@ function Index(props: IndexProps) {
           1 SATOSHI = 1 PIZZA
         </Heading>
 
-        {/* <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "lg"]}>
-          0 / 522 INSCRIBED!
-        </Heading> */}
-
         <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "lg"]}>
-          <Countdown time={1679832000000 - new Date().getTime()} />
+          {ifStart && <>{alreadyInscribeNum} / 522 INSCRIBED!</>}
+          {!ifStart && <Countdown onStart={() => setIfStart(true)} time={1679832000000 - new Date().getTime()} />}
         </Heading>
       </Flex>
-
     </Box>
 
     {/* <Flex direction="column" gap="2">
@@ -67,8 +94,8 @@ function Index(props: IndexProps) {
       </Box>
     </Flex> */}
 
-    {/* <Table /> */}
-  </Flex>;
+    {ifStart && <Table pizzaList={pizzaList} />}
+  </Box>;
 }
 
 export default Index;

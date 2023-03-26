@@ -9,7 +9,7 @@ function Gallery(props: GalleryProps) {
   const { className } = props;
 
   return <Box className={className}>
-    <Table></Table>
+    {/* <Table></Table> */}
   </Box>;
 }
 
