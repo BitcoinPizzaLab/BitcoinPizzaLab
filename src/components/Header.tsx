@@ -18,8 +18,9 @@ export function Header(props: HeaderProps) {
       </Box>
 
       {/* <Link to="gallery">GALLERY</Link> */}
-      <a>HOW TO INSCRIBE</a>
-      <a>DONATE</a>
+      <a href="https://brimless.medium.com/unisat-inscribe-is-now-live-1c742702841e
+" target="_blank">HOW TO INSCRIBE</a>
+      {/* <a>DONATE</a> */}
       <a href="https://twitter.com/pizzalabs_btc" target="_blank">TWITTER</a>
     </Flex>
     <Box h="90px"></Box>

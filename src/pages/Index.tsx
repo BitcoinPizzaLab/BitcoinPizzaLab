@@ -4,6 +4,7 @@ import { Table } from "../components/Table";
 import { useCallback, useMemo, useState } from 'react';
 import { getPizzaJson } from '../request';
 import { useInterval, useMount } from 'react-use';
+import { Countdown } from '../components/CountDown';
 
 interface IndexProps {
   className?: string;
@@ -25,6 +26,8 @@ function Index(props: IndexProps) {
     const alreadyInscribe = pizzaList.filter(item => item.lowest);
     return alreadyInscribe.length;
   }, [pizzaList]);
+
+  const [ifStart, setIfStart] = useState(false);
 
   const fetchData = useCallback(() => {
     getPizzaJson().then((res) => {
@@ -67,7 +70,8 @@ function Index(props: IndexProps) {
         </Heading>
 
         <Heading display="flex" justifyContent="center" textAlign="center" size={["md", "lg"]}>
-          {alreadyInscribeNum} / 522 INSCRIBED!
+          {ifStart && <>{alreadyInscribeNum} / 522 INSCRIBED!</>}
+          {!ifStart && <Countdown onStart={() => setIfStart(true)} time={1679832000000 - new Date().getTime()} />}
         </Heading>
       </Flex>
     </Box>
@@ -90,7 +94,7 @@ function Index(props: IndexProps) {
       </Box>
     </Flex> */}
 
-    <Table pizzaList={pizzaList} />
+    {ifStart && <Table pizzaList={pizzaList} />}
   </Box>;
 }
 
