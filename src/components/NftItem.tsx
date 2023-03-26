@@ -51,7 +51,7 @@ export function NftItem(props: NftItemProps) {
 
         {!lowest && <Link href={src} target="_blank" _hover={{
           textDecoration: 'none'
-        }}>INSCRIBED</Link>}
+        }}>INSCRIBE</Link>}
       </Flex>
     </Box>
   </Box>;
